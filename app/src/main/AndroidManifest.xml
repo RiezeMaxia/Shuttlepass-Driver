@@ -16,7 +16,8 @@
         <activity
             android:name=".ActiveTrip"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShuttlePassDriverActionBar"/>
         <activity
             android:name=".DestinationList"
             android:exported="false"
