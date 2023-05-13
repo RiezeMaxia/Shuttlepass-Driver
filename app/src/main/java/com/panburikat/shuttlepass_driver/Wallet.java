@@ -59,11 +59,13 @@ public class Wallet extends Fragment {
             public void run() {
                 //Starting Write and Read data with URL
                 //Creating array for parameters
-                String[] field = new String[1];
+                String[] field = new String[2];
                 field[0] = "id";
+                field[1] = "limit";
                 //Creating array for data
-                String[] data = new String[1];
+                String[] data = new String[2];
                 data[0] = id;
+                data[1] = "5";
                 PutData putData = new PutData("https://jamora.leon.svdphs.ph/getTransaction.php", "POST", field, data);
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
