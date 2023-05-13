@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,12 +15,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.panburikat.shuttlepass_driver.Util.NetworkChangeListener;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.apache.commons.lang3.StringUtils;
 
 public class DriverDetails extends AppCompatActivity {
 
+    NetworkChangeListener nc = new NetworkChangeListener();
     String accID;
 
     @Override
@@ -82,5 +86,18 @@ public class DriverDetails extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(nc, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(nc);
+        super.onStop();
     }
 }

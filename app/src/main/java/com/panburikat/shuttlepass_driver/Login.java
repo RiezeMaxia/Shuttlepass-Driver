@@ -3,19 +3,30 @@ package com.panburikat.shuttlepass_driver;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.panburikat.shuttlepass_driver.Util.NetworkChangeListener;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Login extends AppCompatActivity {
+
+    NetworkChangeListener nc = new NetworkChangeListener();
+    public static final String SHARED_PREFS = "saved_ACCID";
+    public static final String ACC_ID = "-1";
+
+    static boolean isChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +40,20 @@ public class Login extends AppCompatActivity {
         err.setTextColor(getResources().getColor(R.color.danger));
         Button logbtn = findViewById(R.id.log);
         ProgressBar prog = findViewById(R.id.prog);
+        CheckBox remember = findViewById(R.id.remember);
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this, Register.class);
                 startActivity(intent);
+            }
+        });
+
+        remember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isChecked = remember.isChecked();
             }
         });
 
@@ -72,9 +91,16 @@ public class Login extends AppCompatActivity {
                                         String res = putData.getResult();
                                         String[] result = res.split(";");
                                         if (result[0].equals("Login Success")) {
+                                            if (isChecked == true) {
+                                                SharedPreferences sp = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                                                SharedPreferences.Editor editor = sp.edit();
+                                                editor.putString(ACC_ID, result[1]);
+                                                editor.apply();
+                                            }
                                             Intent intent = new Intent(Login.this, MainPage.class);
                                             intent.putExtra("accID", result[1]);
                                             startActivity(intent);
+                                            finish();
                                         } else {
                                             err.setText(res);
                                         }
@@ -91,5 +117,18 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(nc, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(nc);
+        super.onStop();
     }
 }

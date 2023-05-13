@@ -1,6 +1,8 @@
 package com.panburikat.shuttlepass_driver;
 
 import android.annotation.SuppressLint;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -10,7 +12,11 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.panburikat.shuttlepass_driver.Util.NetworkChangeListener;
+
 public class CashIn extends AppCompatActivity {
+
+    NetworkChangeListener nc = new NetworkChangeListener();
     private WebView webView;
 
     @SuppressLint("RestrictedApi")
@@ -70,5 +76,18 @@ public class CashIn extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(nc, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(nc);
+        super.onStop();
     }
 }

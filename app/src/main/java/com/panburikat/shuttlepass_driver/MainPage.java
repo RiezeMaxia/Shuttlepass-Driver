@@ -2,6 +2,9 @@ package com.panburikat.shuttlepass_driver;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
+import com.panburikat.shuttlepass_driver.Util.NetworkChangeListener;
 import com.panburikat.shuttlepass_driver.databinding.ActivityMainPageBinding;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -25,6 +29,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class MainPage extends AppCompatActivity {
 
+    NetworkChangeListener nc = new NetworkChangeListener();
     ActivityMainPageBinding bind;
     String ID;
     int tag;
@@ -138,9 +143,14 @@ public class MainPage extends AppCompatActivity {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Log Out");
         dialog.setMessage("Are you sure you want to Log out?");
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton("Log Out", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                SharedPreferences sp = getSharedPreferences("saved_ACCID", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+                startActivity(new Intent(MainPage.this, Login.class));
                 finish();
             }
         });
@@ -149,6 +159,19 @@ public class MainPage extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
             }
         }).show();
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(nc, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(nc);
+        super.onStop();
     }
 
     private void replaceFragment(Fragment fragment) {

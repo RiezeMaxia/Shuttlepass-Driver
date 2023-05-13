@@ -3,13 +3,19 @@ package com.panburikat.shuttlepass_driver;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.panburikat.shuttlepass_driver.Util.NetworkChangeListener;
+
 public class ActiveTrip extends AppCompatActivity {
+
+    NetworkChangeListener nc = new NetworkChangeListener();
 
     private WebView webView;
 
@@ -69,5 +75,19 @@ public class ActiveTrip extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(nc, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(nc);
+        super.onStop();
     }
 }
