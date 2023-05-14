@@ -84,7 +84,7 @@
                             android:backgroundTint="@color/grey"
                             android:text="Transfer"
                             android:textAllCaps="false"
-                            android:textSize="24px" />
+                            android:textSize="18px" />
 
                     </LinearLayout>
 
