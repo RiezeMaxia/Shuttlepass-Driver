@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="March 12, 2001, 5:33 AM"
-                android:textSize="10dp" />
+                android:textSize="14dp" />
 
         </LinearLayout>
 

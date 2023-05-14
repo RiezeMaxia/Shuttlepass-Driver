@@ -22,6 +22,7 @@ public class Wallet extends Fragment {
 
     private TextView bal, empty;
     private LinearLayout layout;
+    private LinearLayout layoutTH;
     private String id;
 
     private void getWallet() {
@@ -86,6 +87,39 @@ public class Wallet extends Fragment {
         }); //End Write and Read data with URL
     }
 
+    private void getTripHistory() {
+        Gson gson = new Gson();
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                //Starting Write and Read data with URL
+                //Creating array for parameters
+                String[] field = new String[2];
+                field[0] = "id";
+                field[1] = "limit";
+                //Creating array for data
+                String[] data = new String[2];
+                data[0] = id;
+                data[1] = "1";
+                PutData putData = new PutData("https://jamora.leon.svdphs.ph/getTripHistory.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        String result = putData.getResult();
+                        if (!result.equals("Error: Database connection") && !result.equals("No accountID")) {
+                            if (!result.equals("No Results")) {
+                                layoutTH.removeAllViews();
+                                TripHistoryList tl = gson.fromJson(result, TripHistoryList.class);
+                                    addItemTH(tl.getTripID(), tl.getOrigin(), tl.getDestination(), tl.getVia(), tl.getTimestamp(), tl.getDepartureTime());
+                            }
+                        }
+
+                    }
+                }
+            }
+        }); //End Write and Read data with URL
+    }
+
     private void addItem(String id, String type, String date, String amount) {
         View view = getLayoutInflater().inflate(R.layout.recent_transaction, null);
         TextView tid = view.findViewById(R.id.t_id);
@@ -100,15 +134,31 @@ public class Wallet extends Fragment {
         layout.addView(view);
     }
 
+    private void addItemTH(String id, String origin, String destination, String via, String timestamp, String departureTime) {
+        View view = getLayoutInflater().inflate(R.layout.recent_trip_history, null);
+        TextView trip_id = view.findViewById(R.id.trip_id);
+        TextView place = view.findViewById(R.id.place);
+        TextView trip_date = view.findViewById(R.id.trip_date);
+        TextView dept_time = view.findViewById(R.id.dept_time);
+
+        trip_id.setText(id);
+        place.setText(origin + " - " + destination + " Via " + via);
+        trip_date.setText(timestamp);
+        dept_time.setText(departureTime);
+        layoutTH.addView(view);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wallet, container, false);
         id = this.getArguments().getString("accID");
         layout = view.findViewById(R.id.r_transaction);
+        layoutTH = view.findViewById(R.id.r_trip_history);
 
         bal = view.findViewById(R.id.bal);
         empty = view.findViewById(R.id.empty);
+//        emptyTH = view.findViewById(R.id.emptyTH);
         Button cashin = view.findViewById(R.id.cashin);
 
         cashin.setOnClickListener(new View.OnClickListener() {
@@ -126,12 +176,14 @@ public class Wallet extends Fragment {
             public void onRefresh() {
                 getWallet();
                 getTransactions();
+                getTripHistory();
                 sw.setRefreshing(false);
             }
         });
 
         getWallet();
         getTransactions();
+        getTripHistory();
 
         // Inflate the layout for this fragment
         return view;

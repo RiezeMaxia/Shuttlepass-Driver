@@ -28,11 +28,6 @@ public class TripHistory extends Fragment {
 
         ListView listView = view.findViewById(R.id.listView);
 
-
-//        TripHistoryList one = new TripHistoryList("a", "a", "a", "a", "a");
-//        TripHistoryList two = new TripHistoryList("b", "b", "b", "b", "b");
-//        TripHistoryList three = new TripHistoryList("c", "c", "c", "c", "c");
-
         ArrayList<TripHistoryList> tripHistoryList = new ArrayList<>();
         Gson gson = new Gson();
         Handler handler = new Handler(Looper.getMainLooper());
@@ -41,11 +36,13 @@ public class TripHistory extends Fragment {
             public void run() {
                 //Starting Write and Read data with URL
                 //Creating array for parameters
-                String[] field = new String[1];
+                String[] field = new String[2];
                 field[0] = "id";
+                field[1] = "limit";
                 //Creating array for data
-                String[] data = new String[1];
+                String[] data = new String[2];
                 data[0] = id;
+                data[1] = "none";
                 PutData putData = new PutData("https://jamora.leon.svdphs.ph/getTripHistory.php", "POST", field, data);
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
@@ -57,6 +54,8 @@ public class TripHistory extends Fragment {
                                     TripHistoryList one = new TripHistoryList(tl[x].getTripID(), tl[x].getOrigin(), tl[x].getDestination(), tl[x].getVia(), tl[x].getTimestamp(), tl[x].getDepartureTime());
                                     tripHistoryList.add(one);
                                 }
+                                TripHistoryAdapter adapter = new TripHistoryAdapter(getActivity().getApplicationContext(), R.layout.trip_history_layout, tripHistoryList);
+                                listView.setAdapter(adapter);
                             }
                         }
 
@@ -64,13 +63,6 @@ public class TripHistory extends Fragment {
                 }
             }
         });
-
-//        tripHistoryList.add(one);
-//        tripHistoryList.add(two);
-//        tripHistoryList.add(three);
-
-        TripHistoryAdapter adapter = new TripHistoryAdapter(getActivity().getApplicationContext(), R.layout.trip_history_layout, tripHistoryList);
-        listView.setAdapter(adapter);
 
         return view;
     }
