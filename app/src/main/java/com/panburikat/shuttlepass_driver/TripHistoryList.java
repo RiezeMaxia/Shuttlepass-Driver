@@ -2,18 +2,24 @@ package com.panburikat.shuttlepass_driver;
 
 public class TripHistoryList {
 
+    private String tripID;
     private String origin;
     private String destination;
     private String via;
     private String timestamp;
     private String departureTime;
 
-    public TripHistoryList(String origin, String destination, String via, String timestamp, String departureTime) {
+    public TripHistoryList(String tripID, String origin, String destination, String via, String timestamp, String departureTime) {
+        this.tripID = tripID;
         this.origin = origin;
         this.destination = destination;
         this.via = via;
         this.timestamp = timestamp;
         this.departureTime = departureTime;
+    }
+
+    public String getTripID() {
+        return tripID;
     }
 
     public String getOrigin() {

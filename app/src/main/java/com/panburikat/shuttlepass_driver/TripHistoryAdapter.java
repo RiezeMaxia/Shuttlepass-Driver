@@ -26,20 +26,23 @@ public class TripHistoryAdapter extends ArrayAdapter<TripHistoryList> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        String tripID = getItem(position).getTripID();
         String origin = getItem(position).getOrigin();
         String destination = getItem(position).getDestination();
         String via = getItem(position).getVia();
         String timestamp = getItem(position).getTimestamp();
         String departureTime = getItem(position).getDepartureTime();
 
-        TripHistoryList tripHistoryList = new TripHistoryList(origin, destination, via, timestamp, departureTime);
+        TripHistoryList tripHistoryList = new TripHistoryList(tripID, origin, destination, via, timestamp, departureTime);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 
+        TextView trip_id = (TextView) convertView.findViewById(R.id.trip_id);
         TextView place = (TextView) convertView.findViewById(R.id.place);
         TextView trip_date = (TextView) convertView.findViewById(R.id.trip_date);
         TextView dept_time = (TextView) convertView.findViewById(R.id.dept_time);
 
+        trip_id.setText(tripID);
         place.setText(origin + " - " + destination + " Via " + via);
         trip_date.setText(timestamp);
         dept_time.setText(departureTime);

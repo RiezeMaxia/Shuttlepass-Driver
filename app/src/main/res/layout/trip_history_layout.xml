@@ -13,6 +13,16 @@
         android:paddingLeft="10dp">
 
         <TextView
+            android:id="@+id/trip_id"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center|start"
+            android:text="Trip ID"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:visibility="gone"/>
+
+        <TextView
             android:id="@+id/place"
             android:layout_width="match_parent"
             android:layout_height="40dp"
