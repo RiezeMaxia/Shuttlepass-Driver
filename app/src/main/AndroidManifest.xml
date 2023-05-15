@@ -15,10 +15,15 @@
         android:theme="@style/Theme.ShuttlePassDriver"
         tools:targetApi="31">
         <activity
-            android:name=".Transfer"
+            android:name=".Confirmation"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ShuttlePassDriverActionBar"/>
+        <activity
+            android:name=".Transfer"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"
@@ -53,7 +58,7 @@
             android:name=".Trip"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ShuttlePassDriverActionBar"/>
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
         <activity
             android:name=".MainPage"
             android:exported="true"

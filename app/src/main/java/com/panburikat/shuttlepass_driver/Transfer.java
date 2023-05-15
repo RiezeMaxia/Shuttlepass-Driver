@@ -3,6 +3,7 @@ package com.panburikat.shuttlepass_driver;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -17,7 +18,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Transfer extends AppCompatActivity {
 
-    String channel = "", ID;
+    String channel = "", ID, am;
     boolean isOther;
 
     @Override
@@ -68,7 +69,7 @@ public class Transfer extends AppCompatActivity {
         other.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                channel = "other";
+                channel = "Other Account";
                 isOther = true;
                 other.setBackground(getResources().getDrawable(R.drawable.layout_border));
                 gcash.setBackground(null);
@@ -82,43 +83,57 @@ public class Transfer extends AppCompatActivity {
         transfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String am = amount.getEditText().getText().toString().trim();
-                String rec = (isOther) ? rec2.getEditText().getText().toString().trim() : channel;
+                am = amount.getEditText().getText().toString().trim();
+                am = amount.getEditText().getText().toString().trim();
+                if (am.charAt(0) == '0') {
+                    am = am.substring(1);
+                }
+                String rec = (isOther) ? rec2.getEditText().getText().toString().trim() : rec1.getEditText().getText().toString().trim();
 
                 if (!am.equals("") && !rec.equals("")) {
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
-                            String[] field = new String[3];
-                            field[0] = "accid";
-                            field[1] = "amount";
-                            field[2] = "recipient";
-                            //Creating array for data
-                            String[] data = new String[3];
-                            data[0] = ID;
-                            data[1] = am;
-                            data[2] = rec;
-                            PutData putData = new PutData("https://jamora.leon.svdphs.ph/transfer.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    String result = putData.getResult();
-                                    if (!result.equals("Error: Database connection") && !result.equals("No accountID")) {
-                                        if (result.equals("Success")) {
-                                            Toast.makeText(getApplicationContext(), "Transfer Success!", Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        } else if (result.equals("Email not found!")) {
-                                            Toast.makeText(getApplicationContext(), "Receiving account not found!", Toast.LENGTH_SHORT).show();
+                    if (channel.equals("Other Account")) {
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                //Starting Write and Read data with URL
+                                //Creating array for parameters
+                                String[] field = new String[1];
+                                field[0] = "email";
+                                //Creating array for data
+                                String[] data = new String[1];
+                                data[0] = rec;
+                                PutData putData = new PutData("https://jamora.leon.svdphs.ph/getAccDetails.php", "POST", field, data);
+                                if (putData.startPut()) {
+                                    if (putData.onComplete()) {
+                                        String result = putData.getResult();
+                                        if (!result.equals("Error: Database connection") && !result.equals("No email")) {
+                                            if (!result.equals("Error") && !result.equals(ID)) {
+                                                Intent intent = new Intent(Transfer.this, Confirmation.class);
+                                                intent.putExtra("accID", ID);
+                                                intent.putExtra("amount", am);
+                                                intent.putExtra("recipient", rec);
+                                                intent.putExtra("channel", channel);
+                                                startActivity(intent);
+                                                finish();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Receiving account not found!", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
-                                    } else if (result.equals("Balance Insufficient")) {
-                                        Toast.makeText(getApplicationContext(), "You have Insufficient Balance to transfer!", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
-                        }
-                    }); //End Write and Read data with URL
+                        }); //End Write and Read data with URL
+                    } else {
+                        Intent intent = new Intent(Transfer.this, Confirmation.class);
+                        intent.putExtra("accID", ID);
+                        intent.putExtra("amount", am);
+                        intent.putExtra("recipient", rec);
+                        intent.putExtra("channel", channel);
+                        startActivity(intent);
+                        finish();
+                    }
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Please fill in all fields!", Toast.LENGTH_SHORT).show();
