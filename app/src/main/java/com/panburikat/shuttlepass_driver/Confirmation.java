@@ -55,7 +55,7 @@ public class Confirmation extends AppCompatActivity {
                         String[] data = new String[3];
                         data[0] = ID;
                         data[1] = amount;
-                        data[2] = rec;
+                        data[2] = (chan.equals("Other Account")) ? rec : chan;
                         PutData putData = new PutData("https://jamora.leon.svdphs.ph/transfer.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
