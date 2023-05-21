@@ -4,7 +4,6 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -16,7 +15,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,9 +57,6 @@ public class Trip extends AppCompatActivity implements TimePickerDialog.OnTimeSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Start Trip");
-        getSupportActionBar().setHomeActionContentDescription("");
 
         accID = getIntent().getStringExtra("accID");
         EditText seats = findViewById(R.id.seats);
@@ -174,13 +169,5 @@ public class Trip extends AppCompatActivity implements TimePickerDialog.OnTimeSe
         SimpleDateFormat form = new SimpleDateFormat("h:mm a");
         timeSelected = form.format(c.getTime());
         timepick.setText(timeSelected);
-    }
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                break;
-        }
-        return true;
     }
 }

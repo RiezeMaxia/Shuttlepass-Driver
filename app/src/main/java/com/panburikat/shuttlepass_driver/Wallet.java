@@ -110,7 +110,9 @@ public class Wallet extends Fragment {
                             if (!result.equals("No Results")) {
                                 layoutTH.removeAllViews();
                                 TripHistoryList[] tl = gson.fromJson(result, TripHistoryList[].class);
+
                                 addItemTH(tl[0].getTripID(), tl[0].getOrigin(), tl[0].getDestination(), tl[0].getVia(), tl[0].getTimestamp(), tl[0].getDepartureTime());
+
                             }
                         }
 
@@ -160,21 +162,11 @@ public class Wallet extends Fragment {
         empty = view.findViewById(R.id.empty);
 //        emptyTH = view.findViewById(R.id.emptyTH);
         Button cashin = view.findViewById(R.id.cashin);
-        Button transfer = view.findViewById(R.id.transfer);
 
         cashin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CashIn.class);
-                intent.putExtra("accID", id);
-                startActivity(intent);
-            }
-        });
-
-        transfer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Transfer.class);
                 intent.putExtra("accID", id);
                 startActivity(intent);
             }

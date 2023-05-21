@@ -10,4 +10,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="danger">#FFd9534f</color>
     <color name="lighgray">#FFD3D3D3</color>
+    <color name="taupe">#4B4237</color>
+    <color name="goldenrod">#D5A021</color>
+    <color name="alabaster">#EDE7D9</color>
+    <color name="taupe_gray">#A49694</color>
+    <color name="dim_gray">#736B60</color>
 </resources>

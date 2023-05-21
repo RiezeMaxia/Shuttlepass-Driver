@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Trip ID"
             android:textSize="18dp"
-            android:textColor="@color/black"
+            android:textColor="@color/taupe"
             android:visibility="gone"/>
 
         <TextView
@@ -28,14 +28,15 @@
             android:layout_height="wrap_content"
             android:text="From - To Via"
             android:textSize="18dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/dim_gray"/>
 
         <TextView
             android:id="@+id/trip_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Date Time"
-            android:textSize="14dp" />
+            android:textSize="12dp"
+            android:textColor="@color/dim_gray"/>
     </LinearLayout>
 
     <TextView
@@ -47,5 +48,5 @@
         android:text="DeptTime"
         android:paddingRight="10dp"
         android:textSize="18dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/dim_gray"/>
 </LinearLayout>
