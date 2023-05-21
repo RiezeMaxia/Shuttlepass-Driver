@@ -127,6 +127,7 @@
                 android:layout_marginHorizontal="20dp"/>
 
             <Button
+                android:id="@+id/log_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/taupe"
