@@ -96,6 +96,7 @@
             </RelativeLayout>
 
             <Button
+                android:id="@+id/account_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/taupe_gray"

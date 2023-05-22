@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lighgray"
+    android:background="@color/alabaster"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Trip">
@@ -96,7 +96,7 @@
                         android:id="@+id/changeTrip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/grey"
+                        android:background="@color/goldenrod"
                         android:padding="8dp"
                         android:src="@drawable/change" />
 
@@ -132,9 +132,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:backgroundTint="@color/grey"
+                        android:backgroundTint="@color/goldenrod"
                         android:layout_marginRight="30dp"
-                        android:text="-- : -- --" />
+                        android:text="-- : -- --"
+                        android:textColor="@color/taupe"/>
                 </LinearLayout>
 
 
@@ -176,7 +177,7 @@
             android:id="@+id/ready"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_green_light"
+            android:backgroundTint="@color/goldenrod"
             android:text="Ready to accept Passengers!" />
     </LinearLayout>
 </LinearLayout>

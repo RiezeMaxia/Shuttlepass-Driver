@@ -23,6 +23,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 public class Profile extends Fragment {
 
     private String id;
+    private String acc_email;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +34,7 @@ public class Profile extends Fragment {
         TextView full_name = view.findViewById(R.id.full_name);
         TextView email = view.findViewById(R.id.email);
         Button log_out = view.findViewById(R.id.log_out);
+        Button account_settings = view.findViewById(R.id.account_settings);
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
@@ -52,6 +54,7 @@ public class Profile extends Fragment {
                             String[] array = result.split(";");
                             full_name.setText(array[0]);
                             email.setText(array[1]);
+                            acc_email = array[1];
                         }
                     }
                 }
@@ -61,7 +64,7 @@ public class Profile extends Fragment {
         log_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity().getApplicationContext());
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                 dialog.setTitle("Log Out");
                 dialog.setMessage("Are you sure you want to Log out?");
                 dialog.setPositiveButton("Log Out", new DialogInterface.OnClickListener() {
@@ -80,6 +83,16 @@ public class Profile extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                     }
                 }).show();
+            }
+        });
+
+        account_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ChangePassword.class);
+                intent.putExtra("accID", id);
+                intent.putExtra("email", acc_email);
+                startActivity(intent);
             }
         });
         return view;

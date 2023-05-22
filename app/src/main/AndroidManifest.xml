@@ -15,6 +15,12 @@
         android:theme="@style/Theme.ShuttlePassDriver"
         tools:targetApi="31">
         <activity
+            android:name=".ChangePassword"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShuttlePassDriverActionBar"
+            />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
@@ -23,13 +29,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ActiveTrip"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ShuttlePassDriverActionBar"/>
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
         <activity
             android:name=".DestinationList"
             android:exported="false"
@@ -60,7 +65,7 @@
         <activity
             android:name=".Login"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

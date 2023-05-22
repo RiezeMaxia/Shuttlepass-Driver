@@ -32,7 +32,7 @@
     </style>
 
     <style name="MyActionBar" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="android:background">@color/lighgray</item>
+        <item name="android:background">@color/goldenrod</item>
     </style>
 
     <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
