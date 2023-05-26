@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
         TextInputLayout passInp = findViewById(R.id.pass);
         TextView reg = findViewById(R.id.reg);
         TextView err = findViewById(R.id.error);
+        TextView forgor = findViewById(R.id.forgor);
         err.setTextColor(getResources().getColor(R.color.danger));
         Button logbtn = findViewById(R.id.log);
         ProgressBar prog = findViewById(R.id.prog);
@@ -54,6 +55,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 isChecked = remember.isChecked();
+            }
+        });
+
+        forgor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, ForgotPass.class);
+                startActivity(intent);
             }
         });
 
