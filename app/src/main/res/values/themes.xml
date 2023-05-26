@@ -34,12 +34,6 @@
         <item name="android:background">@color/goldenrod</item>
     </style>
 
-    <style name="TimePickerTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/goldenrod</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
     <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:colorControlActivated">@android:color/transparent</item>
         <item name="android:colorControlHighlight">@android:color/transparent</item>
