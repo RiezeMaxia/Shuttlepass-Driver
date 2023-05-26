@@ -35,6 +35,7 @@
         <item name="android:background">@color/goldenrod</item>
     </style>
 
+
     <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:colorControlActivated">@android:color/transparent</item>
         <item name="android:colorControlHighlight">@android:color/transparent</item>

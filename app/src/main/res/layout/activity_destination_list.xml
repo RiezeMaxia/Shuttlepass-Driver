@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DestinationList">
+    tools:context=".DestinationList"
+    android:background="@color/alabaster">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/sb"

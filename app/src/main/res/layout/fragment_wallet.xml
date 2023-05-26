@@ -46,11 +46,11 @@
 
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="50px"
                     android:layout_marginTop="50px"
-                    android:src="@drawable/dumskad" />
+                    android:src="@drawable/logo_2" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
