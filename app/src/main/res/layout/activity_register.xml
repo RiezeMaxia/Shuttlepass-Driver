@@ -9,25 +9,79 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="70px"
-            android:src="@drawable/dumskad" />
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45px"
+            android:orientation="vertical"
+            android:layout_margin="35dp"
+         >
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:src="@drawable/brand_text" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:src="@drawable/bus_illust_2" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bottom_background" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="500dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/wave"
+                    />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="40dp"
+                app:contentPadding="30dp"
+                app:cardElevation="0dp"
+                >
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -37,6 +91,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingRight="15px"
+                app:boxBackgroundColor="@color/white"
+                android:textColorHint="@color/taupe_gray"
+                app:boxStrokeColor="@color/taupe"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -44,7 +101,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapWords|textCapSentences"
-                    android:hint="First Name"/>
+                    android:hint="First Name"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -53,7 +111,10 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:paddingLeft="15px"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                android:textColorHint="@color/taupe_gray"
+                app:boxStrokeColor="@color/taupe">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/lname_edit"
@@ -72,6 +133,9 @@
             android:layout_height="match_parent"
             android:layout_marginTop="45px"
             app:startIconDrawable="@drawable/email"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/taupe_gray"
+            app:boxStrokeColor="@color/taupe"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -87,7 +151,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="45px"
-            app:startIconDrawable="@drawable/password">
+            app:startIconDrawable="@drawable/password"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/taupe_gray"
+            app:boxStrokeColor="@color/taupe">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -102,7 +169,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="45px"
-            app:startIconDrawable="@drawable/password">
+            app:startIconDrawable="@drawable/password"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/taupe_gray"
+            app:boxStrokeColor="@color/taupe">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -116,7 +186,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45px"/>
+            android:layout_marginTop="20px"/>
 
         <ProgressBar
             android:id="@+id/prog"
@@ -131,9 +201,8 @@
             android:id="@+id/regbtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="70px"
             android:layout_marginTop="45px"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/taupe"
             android:paddingVertical="50px"
             android:text="Register" />
 
@@ -143,11 +212,29 @@
             android:layout_marginVertical="35px"
             android:background="@color/grey" />
 
-        <TextView
-            android:id="@+id/log"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go back to Login"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Already have an account? "
+                        android:textColor="@color/taupe"/>
+                    <TextView
+                        android:id="@+id/log"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login Here"
+                        android:textColor="@color/dark_teal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
