@@ -24,7 +24,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:src="@drawable/brand_text" />
+                android:src="@drawable/brand_text_logo" />
 
             <ImageView
                 android:layout_width="400dp"
@@ -79,7 +79,9 @@
                     app:startIconDrawable="@drawable/email"
                     app:boxBackgroundColor="@color/white"
                     android:textColorHint="@color/taupe_gray"
-                    app:boxStrokeColor="@color/taupe">
+                    app:boxStrokeColor="@color/taupe"
+                    app:hintTextColor="@color/taupe"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -97,7 +99,8 @@
                     app:startIconDrawable="@drawable/password"
                     app:boxBackgroundColor="@color/white"
                     android:textColorHint="@color/taupe_gray"
-                    app:boxStrokeColor="@color/taupe">
+                    app:boxStrokeColor="@color/taupe"
+                    app:hintTextColor="@color/taupe">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"

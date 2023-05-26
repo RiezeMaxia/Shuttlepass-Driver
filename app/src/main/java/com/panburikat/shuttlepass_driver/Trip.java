@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,6 +66,7 @@ public class Trip extends AppCompatActivity implements TimePickerDialog.OnTimeSe
         timepick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 DialogFragment tp = new TimePicker();
                 tp.show(getSupportFragmentManager(), "Departure Time");
             }

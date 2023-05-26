@@ -22,7 +22,9 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         ImageView img = findViewById(R.id.img);
+        ImageView brand = findViewById(R.id.brand);
         img.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in));
+        brand.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in));
 
         new Handler().postDelayed(new Runnable() {
             @Override
