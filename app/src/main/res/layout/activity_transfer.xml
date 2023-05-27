@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lighgray"
+    android:background="@color/alabaster"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Transfer">
@@ -11,110 +12,127 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20px"
-        android:text="Where to transfer your funds?" />
+        android:text="Where to transfer your funds?"
+        android:textColor="@color/dim_gray"/>
 
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/white"
-        android:padding="10dp"
-        android:weightSum="3"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:layout_marginVertical="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="40px"
+        app:contentPadding="10dp">
 
         <LinearLayout
-            android:id="@+id/gcash"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="10px"
-            android:paddingVertical="10px">
+            android:weightSum="3"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="75dp"
-                android:src="@drawable/gcash" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/gcash"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="GCash" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="10px"
+                android:paddingVertical="10px">
 
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/gcash" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GCash"
+                    android:textColor="@color/dim_gray"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/maya"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="10px"
+                android:paddingVertical="10px">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/maya" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maya"
+                    android:textColor="@color/dim_gray"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/other"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="10px"
+                android:paddingVertical="10px">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="75dp"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:src="@drawable/send" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other Accounts"
+                    android:textColor="@color/dim_gray"/>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/maya"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="10px"
-            android:paddingVertical="10px">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="75dp"
-                android:src="@drawable/maya" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Maya" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/other"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="10px"
-            android:paddingVertical="10px">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="75dp"
-                android:scaleX="0.7"
-                android:scaleY="0.7"
-                android:src="@drawable/send" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Other Accounts" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Input desired amount to transfer" />
+        android:text="Input desired amount to transfer"
+        android:textColor="@color/dim_gray"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/amount"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15px">
+        android:layout_marginTop="15px"
+        app:startIconDrawable="@drawable/money_bill_solid"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/taupe_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
             android:hint="Amount"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/taupe"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -123,13 +141,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="15px">
+        android:layout_marginTop="15px"
+        app:startIconDrawable="@drawable/baseline_local_phone_24"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/taupe_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mobile Number"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/taupe"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -138,13 +160,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="15px">
+        android:layout_marginTop="15px"
+        app:startIconDrawable="@drawable/email"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/taupe_gray">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColor="@color/taupe"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -157,7 +183,7 @@
             android:id="@+id/transfer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_green_dark"
+            android:backgroundTint="@color/goldenrod"
             android:text="Send"/>
 
     </LinearLayout>
