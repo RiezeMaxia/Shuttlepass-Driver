@@ -162,11 +162,21 @@ public class Wallet extends Fragment {
         empty = view.findViewById(R.id.empty);
 //        emptyTH = view.findViewById(R.id.emptyTH);
         Button cashin = view.findViewById(R.id.cashin);
+        Button transfer = view.findViewById(R.id.transfer);
 
         cashin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CashIn.class);
+                intent.putExtra("accID", id);
+                startActivity(intent);
+            }
+        });
+
+        transfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Transfer.class);
                 intent.putExtra("accID", id);
                 startActivity(intent);
             }

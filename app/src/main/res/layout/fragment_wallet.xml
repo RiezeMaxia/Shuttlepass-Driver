@@ -118,6 +118,7 @@
                                 android:textSize="22px" />
 
                             <Button
+                                android:id="@+id/transfer"
                                 android:layout_width="wrap_content"
                                 android:layout_height="48dp"
                                 android:layout_marginHorizontal="12dp"
