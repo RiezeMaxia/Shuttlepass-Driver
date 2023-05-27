@@ -54,6 +54,7 @@
                             android:layout_height="wrap_content"
                             android:src="@drawable/baseline_calendar_month_24"
                             android:background="@null"
+                            android:contentDescription="Date Select"
                            />
                     </LinearLayout>
 

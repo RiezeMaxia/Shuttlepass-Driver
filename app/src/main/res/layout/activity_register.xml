@@ -57,6 +57,7 @@
                     android:layout_width="500dp"
                     android:layout_height="250dp"
                     android:src="@drawable/wave"
+                    android:layout_marginStart="12dp"
                     />
             </LinearLayout>
 
