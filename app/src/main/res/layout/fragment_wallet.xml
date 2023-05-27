@@ -25,7 +25,7 @@
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
-                    android:layout_height="199dp"
+                    android:layout_height="160dp"
                     android:src="@drawable/top_background" />
 
                 <ImageView
@@ -46,18 +46,18 @@
 
 
                 <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="124dp"
+                    android:layout_height="50dp"
                     android:layout_marginStart="50px"
-                    android:layout_marginTop="50px"
-                    android:src="@drawable/logo_2" />
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/brand_text_logo" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="80dp"
+                    android:layout_marginTop="45dp"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="40px"
                     app:cardElevation="0dp"
