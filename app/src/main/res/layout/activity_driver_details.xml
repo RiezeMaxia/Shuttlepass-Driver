@@ -7,13 +7,15 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".DriverDetails">
+    tools:context=".DriverDetails"
+    android:background="@color/alabaster">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="To complete the Driver Account Registration, please input your Licence Number and Assigned Bus Code"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:textColor="@color/dim_gray"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,13 +28,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:startIconDrawable="@drawable/id">
+            app:startIconDrawable="@drawable/id"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/taupe_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Licence Number"
-                android:inputType="textCapCharacters" />
+                android:inputType="textCapCharacters"
+                android:textColor="@color/taupe"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -41,13 +46,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45px"
-            app:startIconDrawable="@drawable/trip">
+            app:startIconDrawable="@drawable/trip"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/taupe_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Bus Code"
-                android:inputType="textCapCharacters" />
+                android:inputType="textCapCharacters"
+                android:textColor="@color/taupe"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -63,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="50px"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/goldenrod"
             android:text="Submit"
             />
 
