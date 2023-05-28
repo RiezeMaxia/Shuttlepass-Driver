@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.content.BroadcastReceiver;
+
 import com.google.android.material.textfield.TextInputLayout;
 import com.panburikat.shuttlepass_driver.Util.NetworkChangeListener;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -25,9 +25,8 @@ public class Login extends AppCompatActivity {
     NetworkChangeListener nc = new NetworkChangeListener();
     public static final String SHARED_PREFS = "saved_ACCID";
     public static final String ACC_ID = "-1";
-    public static final String ACTION_FINISH_ALL_ACTIVITIES = "com.panburikat.shuttlepass_driver.ACTION_FINISH_ALL_ACTIVITIES";
-    static boolean isChecked = false;
 
+    static boolean isChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class Login extends AppCompatActivity {
         Button logbtn = findViewById(R.id.log);
         ProgressBar prog = findViewById(R.id.prog);
         CheckBox remember = findViewById(R.id.remember);
-
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override

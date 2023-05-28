@@ -35,46 +35,7 @@ public class Profile extends Fragment {
         TextView email = view.findViewById(R.id.email);
         Button log_out = view.findViewById(R.id.log_out);
         Button account_settings = view.findViewById(R.id.account_settings);
-        Button deactivate = view.findViewById(R.id.deactivate);
         Handler handler = new Handler(Looper.getMainLooper());
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("Warning");
-        builder.setMessage("Are you sure you want to deactivate your account?");
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // Handle button click event (if needed)
-                dialog.dismiss();
-            }
-        });
-
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // Handle button click event (if needed)
-                    //Starting Write and Read data with URL
-                    //Creating array for parameters
-                    String[] field = new String[1];
-                    field[0] = "id";
-                    //Creating array for data
-                    String[] data = new String[1];
-                    data[0] = id;
-                    PutData putData = new PutData("https://jamora.leon.svdphs.ph/deactivateAcc.php", "POST", field, data);
-                    if (putData.startPut()) {
-                        if (putData.onComplete()) {
-                            String result = putData.getResult();
-                            if (!result.equals("Account Deactivated")) {
-                                builder.setTitle("Message:");
-                                builder.setMessage(result);
-                                startActivity(new Intent(getActivity(), Login.class));
-                                getActivity().finish();
-                            }else{
-                                builder.setTitle("Message:");
-                                builder.setMessage(result);
-                            }
-                        }
-                    }
-                }
-        });
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -134,15 +95,6 @@ public class Profile extends Fragment {
                 startActivity(intent);
             }
         });
-
-        deactivate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
-        });
-
         return view;
     }
 }
