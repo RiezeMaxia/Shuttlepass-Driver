@@ -78,7 +78,7 @@
                 android:justificationMode="inter_word"
                 android:layout_marginBottom="40dp"
                 android:textColor="@color/dim_gray"
-                android:text="A2: By clicking the Transfer Button in the wallet page, you can select GCash, Maya, or an affiliated email account and input desired amount."/>
+                android:text="A3: By clicking the Transfer Button in the wallet page, you can select GCash, Maya, or an affiliated email account and input desired amount."/>
 
             <TextView
                 android:layout_width="match_parent"
