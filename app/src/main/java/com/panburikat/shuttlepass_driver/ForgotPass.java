@@ -1,5 +1,6 @@
 package com.panburikat.shuttlepass_driver;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -30,6 +32,10 @@ public class ForgotPass extends AppCompatActivity {
         TextView err = findViewById(R.id.error);
         Button submitBtn = findViewById(R.id.submit);
         ProgressBar prog = findViewById(R.id.prog);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Forgot Password");
+        getSupportActionBar().setHomeActionContentDescription("");
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +85,16 @@ public class ForgotPass extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return true;
     }
 
 }

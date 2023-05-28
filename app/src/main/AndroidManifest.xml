@@ -42,6 +42,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ShuttlePassDriverActionBar" />
         <activity
+            android:name=".Transfer"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
+        <activity
+            android:name=".Confirmation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
+        <activity
             android:name=".DestinationList"
             android:exported="false"
             android:screenOrientation="portrait" />

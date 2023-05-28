@@ -201,6 +201,7 @@
             android:layout_marginTop="45px"
             android:layout_marginHorizontal="70px"
             android:layout_gravity="center"
+            android:indeterminateTint="@color/taupe"
             android:visibility="gone"/>
 
         <Button
