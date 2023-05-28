@@ -13,7 +13,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Please input the email of the account you want to change password of"
+                android:text="Please input the email of your account to change password."
                 android:textSize="16sp"
                 android:textColor="@color/dim_gray"
                 android:layout_marginBottom="20dp"/>
