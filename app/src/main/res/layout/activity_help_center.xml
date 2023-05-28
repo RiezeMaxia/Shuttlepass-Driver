@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpCenter"
+    android:orientation="vertical"
+    android:background="@color/alabaster"
+    android:padding="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="40px"
+        app:contentPadding="15dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frequently Asked Questions (FAQ)"
+                android:textSize="16sp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/taupe"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Q1: What is ShuttlePass?"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/goldenrod"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/dim_gray"
+                android:text="A1: ShuttlePass is a mobile application for bus transportation. For customers, they can cash-in, transfer, and purchase bus tickets. For drivers, they can cash-in, transfer, set bus details, depart, and refund."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:text="Q2: How can I add funds to my e-wallet?"
+                android:textColor="@color/goldenrod"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/dim_gray"
+                android:text="A2: By clicking the Cash-In Button in the wallet page, you can connect your GCash or Maya account via PayMongo and input desired amount."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:text="Q3: How do I transfer funds?"
+                android:textColor="@color/goldenrod"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:layout_marginBottom="40dp"
+                android:textColor="@color/dim_gray"
+                android:text="A2: By clicking the Transfer Button in the wallet page, you can select GCash, Maya, or an affiliated email account and input desired amount."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/taupe_gray"
+                android:textSize="11sp"
+                android:gravity="center_horizontal"
+                android:text="For further questions, contact us through ShuttlePass@email.com."/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
