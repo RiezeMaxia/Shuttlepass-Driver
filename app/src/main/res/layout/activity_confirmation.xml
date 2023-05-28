@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/lighgray"
+    android:background="@color/alabaster"
     tools:context=".Confirmation">
 
     <androidx.cardview.widget.CardView
@@ -24,51 +24,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="16dp"
-                android:text="Confirmation"/>
+                android:textSize="16sp"
+                android:text="Confirmation"
+                android:textColor="@color/taupe"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50px"
                 android:layout_gravity="center"
-                android:text="Transfer Amount:"/>
+                android:text="Transfer Amount:"
+                android:textColor="@color/taupe"/>
 
             <TextView
                 android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="24dp"
-                android:text=""/>
+                android:textSize="24sp"
+                android:text=""
+                android:textColor="@color/dim_gray"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50px"
-                android:text="Transfer To:"/>
+                android:text="Transfer To:"
+                android:textColor="@color/taupe"/>
 
             <TextView
                 android:id="@+id/channel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="18sp"
                 android:layout_marginStart="30px"
-                android:text=""/>
+                android:text=""
+                android:textColor="@color/dim_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50px"
-                android:text="Recipient:"/>
+                android:text="Recipient:"
+                android:textColor="@color/taupe"/>
 
             <TextView
                 android:id="@+id/rec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="18sp"
                 android:layout_marginStart="30px"
-                android:text=""/>
+                android:text=""
+                android:textColor="@color/dim_gray"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -84,14 +92,16 @@
             android:id="@+id/confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_green_dark"
+            android:backgroundTint="@color/goldenrod"
+
             android:text="Confirm"/>
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_red_dark"
+            android:backgroundTint="@color/ruby"
+
             android:text="Cancel"/>
 
 
