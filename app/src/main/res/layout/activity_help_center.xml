@@ -84,9 +84,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/taupe_gray"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:gravity="center_horizontal"
-                android:text="For further questions, contact us through ShuttlePass@email.com."/>
+                android:text="For further questions, contact us via ShuttlePass@email.com."/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
