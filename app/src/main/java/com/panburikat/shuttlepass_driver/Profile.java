@@ -35,6 +35,7 @@ public class Profile extends Fragment {
         TextView email = view.findViewById(R.id.email);
         Button log_out = view.findViewById(R.id.log_out);
         Button account_settings = view.findViewById(R.id.account_settings);
+        Button help_center = view.findViewById(R.id.help_center);
         Handler handler = new Handler(Looper.getMainLooper());
         Button deactivate = view.findViewById(R.id.deactivate);
 
@@ -139,6 +140,14 @@ public class Profile extends Fragment {
                 Intent intent = new Intent(getActivity(), ChangePassword.class);
                 intent.putExtra("accID", id);
                 intent.putExtra("email", acc_email);
+                startActivity(intent);
+            }
+        });
+
+        help_center.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), HelpCenter.class);
                 startActivity(intent);
             }
         });

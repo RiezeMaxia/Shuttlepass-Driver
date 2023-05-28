@@ -18,8 +18,12 @@
             android:name=".ChangePassword"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ShuttlePassDriverActionBar"
-            />
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
+        <activity
+            android:name=".HelpCenter"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"
@@ -34,8 +38,7 @@
             android:name=".ForgotPass"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ShuttlePassDriverActionBar"
-            />
+            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
         <activity
             android:name=".ActiveTrip"
             android:exported="false"
@@ -49,8 +52,7 @@
         <activity
             android:name=".Confirmation"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.ShuttlePassDriverActionBar" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DestinationList"
             android:exported="false"
