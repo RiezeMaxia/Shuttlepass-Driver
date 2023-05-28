@@ -23,9 +23,6 @@ public class Confirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Confirm Transfer");
-        getSupportActionBar().setHomeActionContentDescription("");
-        ID = getIntent().getStringExtra("accID");
         amount = getIntent().getStringExtra("amount");
         rec = getIntent().getStringExtra("recipient");
         chan = getIntent().getStringExtra("channel");
@@ -86,15 +83,5 @@ public class Confirmation extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                break;
-        }
-        return true;
     }
 }
