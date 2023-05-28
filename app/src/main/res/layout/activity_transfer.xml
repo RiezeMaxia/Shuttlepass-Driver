@@ -141,7 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="15px"
+        android:layout_marginTop="10dp"
         app:startIconDrawable="@drawable/baseline_local_phone_24"
         app:boxBackgroundColor="@color/white"
         android:textColorHint="@color/taupe_gray">
@@ -160,7 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="15px"
+        android:layout_marginTop="10dp"
         app:startIconDrawable="@drawable/email"
         app:boxBackgroundColor="@color/white"
         android:textColorHint="@color/taupe_gray">
@@ -184,6 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/goldenrod"
+            android:paddingVertical="18dp"
             android:text="Send"/>
 
     </LinearLayout>

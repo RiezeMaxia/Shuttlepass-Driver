@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="To complete the Driver Account Registration, please input your Licence Number and Assigned Bus Code"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textColor="@color/dim_gray"/>
 
     <LinearLayout
@@ -45,7 +45,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45px"
+            android:layout_marginTop="10dp"
             app:startIconDrawable="@drawable/trip"
             app:boxBackgroundColor="@color/white"
             android:textColorHint="@color/taupe_gray">
@@ -70,7 +70,7 @@
             android:id="@+id/d_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="50px"
+            android:paddingVertical="18dp"
             android:backgroundTint="@color/goldenrod"
             android:text="Submit"
             />
