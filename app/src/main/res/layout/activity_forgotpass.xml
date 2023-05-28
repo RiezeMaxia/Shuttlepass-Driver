@@ -1,173 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/alabaster"
-    tools:context=".Wallet">
+    tools:context=".ForgotPass"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="199dp"
-                    android:src="@drawable/top_background" />
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/background" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="199dp"
-                    android:gravity="end|bottom">
-                    <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/background_2" />
-                </LinearLayout>
-
-
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="50px"
-                    android:layout_marginTop="50px"
-                    android:src="@drawable/dumskad" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="80dp"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="40px"
-                    app:cardElevation="0dp"
-                    app:contentPadding="10dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        android:baselineAligned="false">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.4"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center_vertical">
-
-                                <TextView
-                                    android:id="@+id/bal"
-                                    android:layout_width="230dp"
-                                    android:layout_height="96dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:text="FORGOT PASSWORD?"
-                                    android:textColor="@color/taupe"
-                                    android:textSize="36sp" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please input the email of the account you want to change password of"
+                android:textSize="16sp"
+                android:textColor="@color/dim_gray"
+                android:layout_marginBottom="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginEnd="35dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Please input the email of the account you want to change password of"
-                    android:textSize="20sp"
-                    android:layout_marginBottom="10dp"
-                    />
-
+                android:orientation="vertical">
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:startIconDrawable="@drawable/email">
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/email"
+                    app:boxBackgroundColor="@color/white"
+                    android:textColorHint="@color/taupe_gray">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
-                        android:hint="Email" />
+                        android:hint="Email"
+                        android:textColor="@color/taupe"/>
                 </com.google.android.material.textfield.TextInputLayout>
-
-
 
                 <TextView
                     android:id="@+id/error"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="45px" />
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="horizontal">
 
                 <ProgressBar
                     android:id="@+id/prog"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="45px"
-                    android:layout_marginHorizontal="70px"
                     android:layout_gravity="center"
                     android:visibility="gone"/>
 
                 <Button
                     android:id="@+id/submit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="45px"
-                    android:paddingVertical="50px"
-                    android:layout_marginHorizontal="70px"
-                    android:backgroundTint="@color/grey"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:backgroundTint="@color/goldenrod"
                     android:text="Submit"
                     />
 
-
-
             </LinearLayout>
-        </LinearLayout>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</FrameLayout>
+
+</LinearLayout>
