@@ -22,6 +22,7 @@ public class Confirmation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
+        ID = getIntent().getStringExtra("accID");
         amount = getIntent().getStringExtra("amount");
         rec = getIntent().getStringExtra("recipient");
         chan = getIntent().getStringExtra("channel");
